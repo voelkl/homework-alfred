@@ -14,7 +14,7 @@ export default class App extends React.Component {
       timeArray: [],
     }
   }
-  componentWillMount(){
+  componentDidMount(){
     // sort the array from less to highest 
     data.sort( function (a, b) {
       return a.timestamp - b.timestamp
