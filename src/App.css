@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+/* 
+  This is the horizontal component
+*/
+.table {
+	margin: 0 auto;
+}
+
+ul#horizontal-list {
+  overflow: hidden;
+	list-style: none;
+  padding-top: 20px;
+  white-space: nowrap;
+  height: 45px
+}
+ul#horizontal-list li {
+  display: inline;
+}
+ul#horizontal-list li:hover{
+  background-color: rgb(238, 236, 236);
+  cursor: pointer
+}
+a:focus{
+  color: 'blue';
+  font-weight: 700;
+}
+
+.list-items {
+  margin-right: 25px
+}
+.prvButton {
+  float: right
+}
+.selected {
+  font-weight: 700;
+}
+.iconButton{
+  margin-top: 25px !important;
+}
+.textContainer{
+  text-align: center;
+}

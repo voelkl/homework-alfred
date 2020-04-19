@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import HorizontalTimeline from 'react-horizontal-timeline'
 import data from './data.json'
 import TextBox from './TextBox'
+import HorizontalTimeLine from './HorizontalTimeLine'
 
 export default class App extends React.Component {
   constructor(props){
@@ -13,8 +13,17 @@ export default class App extends React.Component {
       data: data,
       timeArray: [],
     }
+    this.setValue = this.setValue.bind(this)
   }
-  componentDidMount(){
+  componentWillMount(){
+    this.sortData()
+  }
+  setValue(id){
+    this.setState({
+      value: id
+    })
+  }
+  sortData(){
     // sort the array from less to highest 
     data.sort( function (a, b) {
       return a.timestamp - b.timestamp
@@ -23,7 +32,7 @@ export default class App extends React.Component {
     // Iterate through data array 
     data.forEach(( el ) => {
       // assign the converted timestamp to the variable
-      let covertedString = this.convertToDMY(el.timestamp)
+      let covertedString = this.convertToYMD(el.timestamp)
       // push the variable to 
       convertedTimeArray.push(covertedString)
     })
@@ -31,7 +40,8 @@ export default class App extends React.Component {
         timeArray: convertedTimeArray
       })
   }
-  convertToDMY (data) {
+
+  convertToYMD (data, string) {
     let unix_timestamp = data
     // Create a new JavaScript Date object based on the timestamp
     // multiplied by 1000 so that the argument is in milliseconds, not seconds.
@@ -43,26 +53,22 @@ export default class App extends React.Component {
     // Year part from the timestamp
     var Year = date.getFullYear();
     // Return the correct date format
-    return (Year+'-'+Month+'-'+Day)
+    return (Day+ '-' + Month + '-' + Year)
   }
+
   render() {
     return (
       <div>
-        {/* Bounding box for the Timeline */}
-        <div style={{ width: '60%', height: '100px', margin: '0 auto' }}>
-          <HorizontalTimeline
+        <HorizontalTimeLine
             index={this.state.value}
-            indexClick={(index) => {
-              this.setState({ value: index, previous: this.state.value });
-            }}
-            values={ this.state.timeArray } />
-        </div>
+            values={this.state.timeArray}
+            setValue={this.setValue}
+          />
         <div className='text-center'>
           <TextBox
             id= {this.state.value}
             data = {this.state.data}
           />
-
         </div>
       </div>
     );
