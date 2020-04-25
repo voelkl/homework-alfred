@@ -40,40 +40,40 @@
   This is the horizontal component
 */
 .table {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 ul#horizontal-list {
   overflow: hidden;
-	list-style: none;
+  list-style: none;
   padding-top: 20px;
   white-space: nowrap;
-  height: 45px
+  height: 45px;
 }
 ul#horizontal-list li {
   display: inline;
 }
-ul#horizontal-list li:hover{
+ul#horizontal-list li:hover {
   background-color: rgb(238, 236, 236);
-  cursor: pointer
+  cursor: pointer;
 }
-a:focus{
-  color: 'blue';
+a:focus {
+  color: "blue";
   font-weight: 700;
 }
 
 .list-items {
-  margin-right: 25px
+  margin-right: 25px;
 }
 .prvButton {
-  float: right
+  float: right;
 }
 .selected {
   font-weight: 700;
 }
-.iconButton{
+.iconButton {
   margin-top: 25px !important;
 }
-.textContainer{
+.textContainer {
   text-align: center;
 }
